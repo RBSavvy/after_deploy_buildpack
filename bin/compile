@@ -1,12 +1,10 @@
 #!/usr/bin/env bash
 
-env_dir=$3
-command_file="$env_dir/AFTER_DEPLOY_COMMAND"
-if [ -e $command_file ]; then
-  command=$(cat $command_file)
-fi
+for file in $(ls $3); do
+  source "$3/$file"
+done
 
 cd $1
 
-echo "Running command: $command"
-exec $command
+echo "Running command: $AFTER_DEPLOY_COMMAND"
+exec $AFTER_DEPLOY_COMMAND
