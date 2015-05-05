@@ -2,8 +2,8 @@
 
 for file in $(ls $3); do
   var=$(cat "$3/$file")
-  echo "sourcing: $3/$file -> $var"
-  export "$3/$file=$var"
+  echo "exporting: $file -> $var"
+  export "$file=$var"
 done
 
 cd $1
