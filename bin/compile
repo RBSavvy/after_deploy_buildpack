@@ -1,12 +1,14 @@
 #!/usr/bin/env bash
 
+echo "-----> Importing Environment"
 for file in $(ls $3); do
   var=$(cat "$3/$file")
-  echo "exporting: $file -> $var"
+  echo "       Exporting: $file -> $var"
   export "$file=$var"
 done
 
 cd $1
 
-echo "Running command: $AFTER_DEPLOY_COMMAND"
+echo "-----> Preparing app for Rails asset pipeline"
+echo "       Running: $AFTER_DEPLOY_COMMAND"
 exec $AFTER_DEPLOY_COMMAND
