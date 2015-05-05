@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 for file in $(ls $3); do
+  echo "sourcing: $3/$file"
   source "$3/$file"
 done
 
