@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 
 for file in $(ls $3); do
-  echo "sourcing: $3/$file"
-  source "$3/$file"
+  var=$(cat "$3/$file")
+  echo "sourcing: $3/$file -> $var"
+  export "$3/$file=$var"
 done
 
 cd $1
