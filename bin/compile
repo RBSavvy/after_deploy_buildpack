@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-
-echo "Running command: $AFTER_DEPLOY_COMMAND"
+env
+echo "Running command:   $AFTER_DEPLOY_COMMAND"
 exec $AFTER_DEPLOY_COMMAND
